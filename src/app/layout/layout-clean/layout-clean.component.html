@@ -1,0 +1,18 @@
+<div class="main-container">
+    <header class="header-4">
+        <div class="branding">
+            <a routerLink="/" routerLinkActive="active" title="home">
+                <clr-icon shape="block" class="is-solid"></clr-icon>
+                <span class="title">REST Sample</span>
+            </a>
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="content-area">
+            <ng-content select="[main]"></ng-content>
+        </div>
+    </div>
+    <footer class="footer">
+        REST Sample &copy; {{year}}
+    </footer>
+</div>

@@ -1,0 +1,43 @@
+
+<form *ngIf="!wait && type === 'view' && !!widget" (submit)="update($event)">
+    <section class="form-block">
+        <div class="form-group">
+            <label for="view0">ID</label>
+            <input type="text" id="view0" name="id" placeholder="ID" size="10" [(ngModel)]="widget.id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="view1">Name</label>
+            <input type="text" id="view1" name="name" placeholder="Widget Name" size="45" [(ngModel)]="widget.name">
+        </div>
+        <div class="form-group">
+            <label for="view2">Price</label>
+            <input type="number" id="view2" name="price" placeholder="Price" size="10" [(ngModel)]="widget.price">
+        </div>
+        <div class="form-group">
+            <label for="view3">Description</label>
+            <textarea id="view3" name="description" placeholder="Widget Description" [(ngModel)]="widget.description" rows="5"></textarea>
+        </div>
+        <button [disabled]="wait" type="submit" class="btn btn-primary">Update</button>
+        <button [disabled]="wait" type="button" class="btn btn-danger" (click)="remove(widget.id)">Remove</button>
+    </section>
+</form>
+
+<form *ngIf="!wait && type === 'create'" (submit)="add($event)">
+    <section class="form-block">
+        <div class="form-group">
+            <label for="add1">Name</label>
+            <input type="text" id="add1" name="name" placeholder="Widget Name" size="45" [(ngModel)]="widget.name">
+        </div>
+        <div class="form-group">
+            <label for="add2">Price</label>
+            <input type="number" id="add2" name="price" placeholder="Price" size="10" [(ngModel)]="widget.price">
+        </div>
+        <div class="form-group">
+            <label for="add3">Description</label>
+            <textarea id="add3" name="description" placeholder="Widget Description" [(ngModel)]="widget.description" rows="5"></textarea>
+        </div>
+        <button [disabled]="wait" type="submit" class="btn btn-primary">Add</button>
+    </section>
+</form>
+
+<p *ngIf="wait"><span class="spinner spinner-inline">Loading...</span><span>Loading...</span></p>

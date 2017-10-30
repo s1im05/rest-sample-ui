@@ -1,0 +1,35 @@
+a {
+    cursor: pointer;
+    .linkified:before {
+        content: "\F08E ";
+        font-size: .8em;
+        :hover {
+            color: #000;
+        }
+    }
+}
+
+.h-inline-block {
+    display: inline-block;
+}
+
+.h-nobr {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.h-strong, .h-bold {
+    font-weight: bold;
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding-top: 40vh;
+    background: #313131;
+}

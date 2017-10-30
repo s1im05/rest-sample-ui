@@ -1,0 +1,27 @@
+<app-layout>
+    <ul class="nav" subnav>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/widget" routerLinkActive="active">Widget List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/create" routerLinkActive="active">Create Widget</a>
+        </li>
+    </ul>
+    <div class="sidenav-content" sidenav>
+        <div class="nav-group">
+            <label *ngIf="wait">
+                <span class="spinner spinner-inline" ></span> <span>Loading...</span>
+            </label>
+
+            <ul class="nav-list" *ngIf="!wait && !!list">
+                <li *ngFor="let item of list">
+                    <a class="nav-link" [routerLink]="['/widget', item.id]" routerLinkActive="active">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div main>
+        <app-widget (updated)="onUpdated($event)" [type]="type" *ngIf="!wait"></app-widget>
+    </div>
+</app-layout>
+
